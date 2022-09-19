@@ -37,13 +37,16 @@ function onImageClick(event) {
 `);
 	instance.show();
 
-	window.addEventListener("keydown", (event) => {
+	window.addEventListener("keydown", onEscapeClick);
+
+	function onEscapeClick(event) {
 		if (event.code === "Escape") {
 			instance.close();
+			window.removeEventListener("keydown", onEscapeClick);
 		}
-	});
+	}
+	
 }
-
 
 
 
